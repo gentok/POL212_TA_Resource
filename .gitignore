@@ -4,7 +4,6 @@
 data/
 
 # File extensions
-.html
 .Rproj.user
 .Rproj
 .Rhistory

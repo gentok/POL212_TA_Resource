@@ -1,7 +1,7 @@
 # POL212 TA Session Web Resources
 ## Gento Kato
 
-This is the web repository that stores files relevant to the TA session for POL211 (2018 Spring @ UC Davis)
+This is the web repository that stores files relevant to the TA session for POL212 (2019 Winter Quarter @ UC Davis)
 
 ## Instruction for Checking & Downloading Files
 

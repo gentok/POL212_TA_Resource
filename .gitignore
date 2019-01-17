@@ -4,6 +4,11 @@
 data/
 
 # File extensions
+.html
+.knit.md
+.spin.R
+.spin.Rmd
+.utf8.md
 .Rproj.user
 .Rproj
 .Rhistory

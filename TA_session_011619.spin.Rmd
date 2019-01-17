@@ -1,43 +1,42 @@
-#' ---
-#' title: "POL212 TA Session"
-#' author: "Gento Kato"
-#' date: "January 16, 2019"
-#' ---
+---
+title: "POL212 TA Session"
+author: "Gento Kato"
+date: "January 16, 2019"
+---
+# Find Dataset
 
-#' # Find Dataset
-#' 
-#' Think about your interests. Following are few examples of potential data sources:
-#' 
-#' ## General
-#' 
-#' * [ICPSR](https://www.icpsr.umich.edu/icpsrweb/ICPSR/index.jsp): You may need to create 
-#' the account with UC Davis E-mail Address to download data.
-#' * [Link List of Public Data](https://github.com/erikgahner/PolData)
-#' 
-#' ## Comparative
-#' 
-#' * [Correlates of War](http://www.correlatesofwar.org)
-#' * [Polity IV](http://www.systemicpeace.org/inscrdata.html)
-#' * [Varieties of Democracy](https://www.v-dem.net/en/)
-#' * [Quality of Government](https://qog.pol.gu.se/data)
-#' * [World Bank](https://data.worldbank.org)
-#' * [IMF](https://www.imf.org/en/Data)
-#' * [World Value Survey](http://www.worldvaluessurvey.org/wvs.jsp)
-#' * [Comparative Study of Electoral Systems](http://www.cses.org)
-#' * [Manifesto Project](https://manifestoproject.wzb.eu)
-#' 
-#' ## American
-#' 
-#' * [American National Election Study (ANES)](https://electionstudies.org)
-#' * [Cooperative Congressional Election Study (CCES)](https://cces.gov.harvard.edu/pages/welcome-cooperative-congressional-election-study)
-#' * [General Social Survey](http://gss.norc.org)
-#' * [Correlates of State Policy](http://ippsr.msu.edu/public-policy/correlates-state-policy)
-#' * [Legislative Effectiveness](https://thelawmakers.org/data-download)
-#' 
-#' # Preparing R Environment
-#' 
+Think about your interests. Following are few examples of potential data sources:
+
+## General
+
+* [ICPSR](https://www.icpsr.umich.edu/icpsrweb/ICPSR/index.jsp): You may need to create 
+the account with UC Davis E-mail Address to download data.
+* [Link List of Public Data](https://github.com/erikgahner/PolData)
+
+## Comparative
+
+* [Correlates of War](http://www.correlatesofwar.org)
+* [Polity IV](http://www.systemicpeace.org/inscrdata.html)
+* [Varieties of Democracy](https://www.v-dem.net/en/)
+* [Quality of Government](https://qog.pol.gu.se/data)
+* [World Bank](https://data.worldbank.org)
+* [IMF](https://www.imf.org/en/Data)
+* [World Value Survey](http://www.worldvaluessurvey.org/wvs.jsp)
+* [Comparative Study of Electoral Systems](http://www.cses.org)
+* [Manifesto Project](https://manifestoproject.wzb.eu)
+
+## American
+
+* [American National Election Study (ANES)](https://electionstudies.org)
+* [Cooperative Congressional Election Study (CCES)](https://cces.gov.harvard.edu/pages/welcome-cooperative-congressional-election-study)
+* [General Social Survey](http://gss.norc.org)
+* [Correlates of State Policy](http://ippsr.msu.edu/public-policy/correlates-state-policy)
+* [Legislative Effectiveness](https://thelawmakers.org/data-download)
+
+# Preparing R Environment
 
 
+```{r }
 ## Clear Workspace
 rm(list = ls())
 
@@ -57,29 +56,31 @@ library(readr)
 library(car)
 library(lattice)
 library(ggplot2)
+```
 
-#'
-#' # Practice Loading Data
-#' 
 
+# Practice Loading Data
+
+
+```{r }
 ## Online Location Quality of Government Data 
 # CSV
-#+ echo=FALSE
+```{r echo=FALSE}
 csvloc <- "./data/qog_bas_cs_jan18.csv" # if downloaded locally
-#+ eval=FALSE
+```{r eval=FALSE}
 csvloc <- "http://www.qogdata.pol.gu.se/data/qog_bas_cs_jan18.csv"
 # STATA
-#+ echo=FALSE
+```{r echo=FALSE}
 dtaloc <- "./data/qog_bas_cs_jan18.dta" # if downloaded locally
-#+ eval=FALSE
+```{r eval=FALSE}
 dtaloc <- "http://www.qogdata.pol.gu.se/data/qog_bas_cs_jan18.dta"
 # SPSS
-#+ echo=FALSE
+```{r echo=FALSE}
 savloc <- "./data/qog_bas_cs_jan18.sav" # if downloaded locally
-#+ eval=FALSE
+```{r eval=FALSE}
 savloc <- "http://www.qogdata.pol.gu.se/data/qog_bas_cs_jan18.sav"
 
-#+
+```{r }
 ## Basic Import Commands
 # CSV (don't require any package)
 d1 <- read.csv(csvloc, stringsAsFactors = FALSE)
@@ -120,24 +121,27 @@ attr(d3,"val.labels")[1:5]
 # SPSS (haven)
 head(d6[,seq(1,5,1)])
 lapply(d6, function(x) attr(x,"label"))[1:5]
+```
 
-#'
-#' # Histogram
-#'
 
-#+ fig.width=6, fig.height=4
+# Histogram
+
+
+```{r fig.width=6, fig.height=4}
 with(d1, hist(icrg_qog, breaks=10, col="gray",
               xlab="Quality of Government (ICRG)"))
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 with(d1, hist(wdi_gdpcapcon2010, breaks="FD",col="gray",
               xlab="GDP per Capita (2010)"))
+```
 
-#'
-#' # Scatter Plot
-#' 
 
+# Scatter Plot
+
+
+```{r }
 # Basic Plot
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 X <- d1$wdi_gdpcapcon2010
 Y <- d1$icrg_qog
 plot(X,Y, main="Quality of Government (ICRG)", xlab="GDP Per Capita", ylab="Butthead")
@@ -145,35 +149,37 @@ abline(lm(Y ~ X), col="red1")
 
 # LOWESS scatter plot smoothing
 d1x <- na.omit(d1[,c("wdi_gdpcapcon2010","icrg_qog")]) # Eliminate NAs
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 with(d1x, plot(wdi_gdpcapcon2010, icrg_qog))
 with(d1x, lines(lowess(wdi_gdpcapcon2010, icrg_qog)))
 with(d1x, lines(lowess(wdi_gdpcapcon2010, icrg_qog, f=1/10), col="red1"))
 
 # Using car
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 scatterplot(icrg_qog ~ wdi_gdpcapcon2010, data=d1,
             smooth=list(span=0.6, lwd=3, lwd.var=2))
 
 # Scatter Plot Matrix by QoG, GDP per capita, and Human Capital Index
-#+ fig.width=6, fig.height=6
+```{r fig.width=6, fig.height=6}
 scatterplotMatrix(~ icrg_qog + wdi_gdpcapcon2010 + pwt_hci, data=d1)
 
 # Using ggplot2
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 ggplot(d1, aes(x=wdi_gdpcapcon2010, y=icrg_qog)) + geom_point() + 
   xlab("GDP per Capita") + ylab("Quality of Government") + 
   geom_smooth(method="lm", aes(color="Linear")) + 
   geom_smooth(method="loess", aes(color="LOWESS")) +
   scale_color_manual(name="Smoother", values=c("blue","red")) + 
   theme_bw()
+```
 
-#'
-#' # Boxplot
-#'
 
+# Boxplot
+
+
+```{r }
 # Single Boxplot
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 Boxplot(~icrg_qog, data=d1)
 
 # By Electoral System
@@ -183,52 +189,54 @@ table(d1$iaep_es)/sum(table(d1$iaep_es))
 # 2 = Majority
 # 3 = Proportional Representation
 # 4 = Mixed
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 Boxplot(icrg_qog~iaep_es, data=d1, 
         xlab="Electoral System",
         ylab="Quality of Government")
 
 # Transform Value Labels
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 d1$eslab <- factor(d1$iaep_es,
                    levels = seq(1,4,1),
                    labels = c("Plurarity","Majority","PR","Mixed"))
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 Boxplot(icrg_qog~eslab, data=d1, 
         xlab="Electoral System",
         ylab="Quality of Government")
 
 # ggplot2
 d1y <- na.omit(d1[,c("icrg_qog","eslab")])
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 ggplot(d1y, aes(x=eslab, y=icrg_qog)) + geom_boxplot() + 
   xlab("GDP per Capita") + ylab("Quality of Government") + 
   theme_bw()
+```
 
-#'
-#' # Transformation 
-#'
 
+# Transformation 
+
+
+```{r }
 # Logarithm Transformation
 d1$loggdp <- log(d1$wdi_gdpcapcon2010)
 
 # Compare Histograms
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 with(d1, hist(wdi_gdpcapcon2010, breaks=10, col="gray"))
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 with(d1, hist(loggdp, breaks="FD",col="gray"))
 
 # Scatter Plot
-#+ fig.width=6, fig.height=4, 
+```{r fig.width=6, fig.height=4,}
 scatterplot(icrg_qog ~ loggdp, span=0.6,
             lwd=3, id.n=4, data=d1)
 
 # Scatter Plot Matrix by QoG, GDP per capita, and Logged GDP per Capita
-#+ fig.width=6, fig.height=6
+```{r fig.width=6, fig.height=6}
 scatterplotMatrix(~ icrg_qog + wdi_gdpcapcon2010 + loggdp, data=d1)
 
 # ggplot2
-#+ fig.width=6, fig.height=4
+```{r fig.width=6, fig.height=4}
 ggplot(d1, aes(x=loggdp, y=icrg_qog)) + geom_point() + 
   xlab("GDP per Capita") + ylab("Quality of Government") + 
   geom_smooth(method="lm", aes(color="Linear")) + 
@@ -236,11 +244,19 @@ ggplot(d1, aes(x=loggdp, y=icrg_qog)) + geom_point() +
   scale_color_manual(name="Smoother", values=c("blue","red")) + 
   theme_bw()
 
-#+ eval=FALSE, echo=FALSE
+```{r eval=FALSE, echo=FALSE}
 # Exporting HTML File
 # In R Studio
-#rmarkdown::render('TA_session_011619.R', 'github_document', clean=FALSE)
+rmarkdown::render('TA_session_011619.R', 'github_document', dev="pdf", html_preview=FALSE)
 #rmarkdown::render('TA_session_011619.R', 'pdf_document')
 # In Terminal, run:
 # Rscript -e "rmarkdown::render('TA_session_011619.R', 'github_document')"
 # Rscript -e "rmarkdown::render('TA_session_011619.R', 'pdf_document')"
+```
+
+
+---
+title: "TA_session_011619.R"
+author: "Gento-K"
+date: "Wed Jan 16 15:59:48 2019"
+---

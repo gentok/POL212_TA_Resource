@@ -239,7 +239,7 @@ ggplot(d1, aes(x=loggdp, y=icrg_qog)) + geom_point() +
 #+ eval=FALSE, echo=FALSE
 # Exporting HTML File
 # In R Studio
-#rmarkdown::render('TA_session_011619.R', 'github_document', clean=FALSE)
+rmarkdown::render('TA_session_011619.R', 'github_document', dev="pdf", html_preview=FALSE)
 #rmarkdown::render('TA_session_011619.R', 'pdf_document')
 # In Terminal, run:
 # Rscript -e "rmarkdown::render('TA_session_011619.R', 'github_document')"

@@ -161,8 +161,8 @@ summary(lm(y~x, data=d))
 #+ eval=FALSE, echo=FALSE
 # Exporting HTML File
 # In R Studio
-#rmarkdown::render('TA_session_013019.R', 'github_document', clean=FALSE)
 #rmarkdown::render('TA_session_013019.R', 'pdf_document')
+#rmarkdown::render('TA_session_013019.R', 'github_document', clean=FALSE)
 # In Terminal, run:
 # Rscript -e "rmarkdown::render('TA_session_011619.R', 'github_document')"
 # Rscript -e "rmarkdown::render('TA_session_011619.R', 'pdf_document')"

@@ -180,7 +180,7 @@ yh <- function(y, x){
 # Residuals Standard Error 
 residualSE <- function(y, x){
   df <- length(y) - 2 # Degrees of Freedom 
-  cat(paste("Step 0: Degrees of Freedom (DF) = n-p-1 =", df))
+  cat(paste("Step 0: Degrees of Freedom (DF) = n-p-1 =", df, "\n\n"))
   y_est <- yh(y, x)
   step1 <- y - y_est
   cat("Step 1: y - yhat:\n")
@@ -199,7 +199,9 @@ residualSE <- function(y, x){
 residualSE(d$y, d$x)
 ```
 
-    ## Step 0: Degrees of Freedom (DF) = n-p-1 = 3Step 1: y - yhat:
+    ## Step 0: Degrees of Freedom (DF) = n-p-1 = 3 
+    ## 
+    ## Step 1: y - yhat:
     ## 1.2 -1.9 -1 2.9 -1.2
     ## 
     ## Step 2: (y - yhat)^2:

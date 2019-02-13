@@ -19,7 +19,7 @@ library(foreign)
 #' # Practice of Analysis
 #'
 #' 1. Download 2016 General Social Survey Data in Stata Format 
-#' from [HERE](http://gss.norc.org/get-the-data/stata). (See Individual Data Section)
+#' from [HERE](http://gss.norc.org/get-the-data/spss). (See Individual Data Section)
 #' 
 #' 2. Open Data in R
 #' 

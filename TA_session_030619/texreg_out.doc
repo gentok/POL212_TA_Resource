@@ -1,0 +1,98 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<table cellspacing="0" align="center" style="border: none;">
+<caption align="top" style="margin-bottom:0.3em;">OLS Estimates</caption>
+<tr>
+<th style="text-align: left; border-top: 2px solid black; border-bottom: 1px solid black; padding-right: 12px;"><b></b></th>
+<th style="text-align: left; border-top: 2px solid black; border-bottom: 1px solid black; padding-right: 12px;"><b>Model 1</b></th>
+<th style="text-align: left; border-top: 2px solid black; border-bottom: 1px solid black; padding-right: 12px;"><b>Model 2</b></th>
+<th style="text-align: left; border-top: 2px solid black; border-bottom: 1px solid black; padding-right: 12px;"><b>Model 3</b></th>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">(Intercept)</td>
+<td style="padding-right: 12px; border: none;">-9.65 (0.25)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;">-11.18 (0.27)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;">-9.32 (0.24)<sup style="vertical-align: 0px;">***</sup></td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Treatment</td>
+<td style="padding-right: 12px; border: none;">0.46 (0.08)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;">0.46 (0.09)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;">-0.10 (0.11)</td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Gender (Female)</td>
+<td style="padding-right: 12px; border: none;">2.48 (0.08)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;">2.51 (0.09)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;">1.90 (0.11)<sup style="vertical-align: 0px;">***</sup></td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Treatment * Female</td>
+<td style="padding-right: 12px; border: none;"></td>
+<td style="padding-right: 12px; border: none;"></td>
+<td style="padding-right: 12px; border: none;">1.20 (0.16)<sup style="vertical-align: 0px;">***</sup></td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Age</td>
+<td style="padding-right: 12px; border: none;">0.05 (0.00)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;">0.05 (0.00)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;">0.05 (0.00)<sup style="vertical-align: 0px;">***</sup></td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Education (High School)</td>
+<td style="padding-right: 12px; border: none;">1.17 (0.12)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;"></td>
+<td style="padding-right: 12px; border: none;">1.11 (0.11)<sup style="vertical-align: 0px;">***</sup></td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Education (Some College)</td>
+<td style="padding-right: 12px; border: none;">1.61 (0.12)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;"></td>
+<td style="padding-right: 12px; border: none;">1.58 (0.12)<sup style="vertical-align: 0px;">***</sup></td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Education (College/More)</td>
+<td style="padding-right: 12px; border: none;">4.10 (0.12)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;"></td>
+<td style="padding-right: 12px; border: none;">4.02 (0.11)<sup style="vertical-align: 0px;">***</sup></td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Education (4p Scale)</td>
+<td style="padding-right: 12px; border: none;"></td>
+<td style="padding-right: 12px; border: none;">1.29 (0.04)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;"></td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Income (Log)</td>
+<td style="padding-right: 12px; border: none;">1.01 (0.05)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;">1.02 (0.06)<sup style="vertical-align: 0px;">***</sup></td>
+<td style="padding-right: 12px; border: none;">1.01 (0.05)<sup style="vertical-align: 0px;">***</sup></td>
+</tr>
+<tr>
+<td style="border-top: 1px solid black;">R<sup style="vertical-align: 0px;">2</sup></td>
+<td style="border-top: 1px solid black;">0.75</td>
+<td style="border-top: 1px solid black;">0.72</td>
+<td style="border-top: 1px solid black;">0.76</td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Adj. R<sup style="vertical-align: 0px;">2</sup></td>
+<td style="padding-right: 12px; border: none;">0.75</td>
+<td style="padding-right: 12px; border: none;">0.72</td>
+<td style="padding-right: 12px; border: none;">0.76</td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;">Num. obs.</td>
+<td style="padding-right: 12px; border: none;">1000</td>
+<td style="padding-right: 12px; border: none;">1000</td>
+<td style="padding-right: 12px; border: none;">1000</td>
+</tr>
+<tr>
+<td style="border-bottom: 2px solid black;">RMSE</td>
+<td style="border-bottom: 2px solid black;">1.31</td>
+<td style="border-bottom: 2px solid black;">1.38</td>
+<td style="border-bottom: 2px solid black;">1.28</td>
+</tr>
+<tr>
+<td style="padding-right: 12px; border: none;" colspan="5"><span style="font-size:0.8em"><sup style="vertical-align: 0px;">***</sup>p &lt; 0.001, <sup style="vertical-align: 0px;">**</sup>p &lt; 0.01, <sup style="vertical-align: 0px;">*</sup>p &lt; 0.05</span></td>
+</tr>
+</table>

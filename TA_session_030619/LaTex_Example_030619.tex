@@ -1,0 +1,125 @@
+%%% CLASS SETTING %%%
+\documentclass[letterpaper, 12pt]{article}
+\usepackage{natbib}
+\usepackage[margin=1in]{geometry} % sets page layout 
+\bibpunct[, ]{(}{)}{,}{a}{}{,} % sets the punctuation of the bibliography entires.
+
+%%% Paper Information %%%
+\title{Presenting Analytical Results in \LaTeX} 
+\usepackage{authblk} % For Author Affiliation Printing
+\author{Gento Kato}
+\affil{University of California, Davis}
+\date{March 6, 2019}
+
+% Other Packages/Settings
+\usepackage{amsfonts, amsmath, amssymb, bm} %Math fonts and symbols
+\usepackage[format=hang, justification=centering]{caption}
+\usepackage{dcolumn, multirow} % decimal-aligned columns, multi-row cells
+\usepackage{graphicx, subfigure, float} % graphics commands
+\usepackage{booktabs} % Advanced formatting of table
+\usepackage[colorlinks=true, citecolor=blue]{hyperref} % Reference link
+\usepackage{setspace}% allows toggling of double/single-spacing
+\doublespace % set document spacing to double use \singlespace if you want single space
+
+\begin{document}
+
+    % Set the Style of Bibliography
+    \bibliographystyle{apsr}
+
+    \maketitle
+
+    \begin{abstract}
+        This sample document describes how you can present R results through \LaTeX.
+    \end{abstract}
+
+    \section{Start Using \LaTeX}
+
+    \par \LaTeX generates beautifully formatted PDF file. Different from other text editors such as Word, \LaTeX file must be  \textit{compiled} to obtain the final product (PDF File, most of the time). To write raw \LaTeX files, you need to learn its grammars and rules. While learning curve is somewhat steep, I believe it pays out in the end. In addition to the easy integration with R, it automates formatting and citations, which will save your time when you are reviewing papers. 
+    
+    \par There are two ways to start using \LaTeX.
+
+    \subsection{Compile Locally}
+
+    \par The standard method to use \LaTeX is to locally compile the file on your own computer. Even when you have no access to internet, this method will give you the power to generate PDF files.
+
+    \begin{enumerate}
+        \item Download TeX Distribution -- \href{https://www.tug.org/texlive/acquire-netinstall.html}{TeX Live}, \href{https://miktex.org/download}{MikTeX}, or \href{http://www.tug.org/mactex/mactex-download.html}{MacTeX} (Mac Version of TeX Live) -- to your computer
+        \item Install \LaTeX Editor. I would recommend \href{https://www.texstudio.org}{TeX Studio} for the begining user.
+        \item Start!
+    \end{enumerate}
+
+    \subsection{Compile Online}
+
+    \par Using web-based \LaTeX editor opens up the possibilities by making it possible to share the TeX files without worrying about local dependencies in compilation. Note that, though, if internet is slow or unavailable, you may have stressful time editing documents. The major editor here is \href{https://www.overleaf.com}{Overleaf}. You can just register their and can start editing immediately. Also, their \href{https://www.overleaf.com/learn/latex/Main_Page}{documentation} page is a very rich resource for learning what you can do in \LaTeX.
+    
+    \subsection{Managing References}
+    
+    \par Automatic citation is one of the great benefits of using \LaTeX. If you are interested in managing references in \texttt{.bib} or \texttt{.bibtex} format (the format compatible to \LaTeX), you should look for either \href{http://www.jabref.org}{JabRef} or href{https://bibdesk.sourceforge.io}{BibDesk} (Mac Only). Some Reference Managers such as \href{https://www.mendeley.com/?interaction_required=true}{Mendeley} and \href{https://www.zotero.org}{Zotero} have an ability to export reference information in \texttt{.bib} format.
+
+    \section{Dependent Variable}
+
+    \par The dependent variable of interest is \textbf{politicalinterest}. \autoref{dvdist} shows the distribution of this variable.
+
+    \begin{figure}[h!] % t implies top, h implies "here". ! emphasize.
+        \centering
+          \includegraphics[width=6in]{dvdist.png}
+          \caption{Plotted Distribution of Political Interest} %title
+          \label{dvdist} %Refer to this graph from texts
+    \end{figure}
+
+    \section{Independent Variables}
+
+    \par There are five independent variables. Variables are \textit{age}, \textit{education}, \textit{income}, \textit{female}, and \textit{treatment}. The distributions of those variables are shown in \autoref{ivdist}.
+
+    \begin{figure}[h!] % t implies top, h implies "here". ! emphasize.
+        \centering
+          \includegraphics[width=6in]{ivdist.png}
+          \caption{Plotted Distribution of Covariates} %title
+          \label{ivdist} %Refer to this graph from texts
+    \end{figure}
+
+    \clearpage % Go To New Page
+
+    \section{OLS Estimates}
+
+    % Print Table (apsrtable)
+    \begin{table}[h!] % t implies top, h implies "here". ! emphasize.
+        \centering % center output
+        \caption{Multiple Regression Estimates (\texttt{apsrtable})} % title
+        \label{apsrtab} % to refer this graph in texts
+        \input{apsrtable_out.tex} % insert table
+    \end{table}
+
+    % Print Table (texreg)
+    \begin{table}[h!] % t implies top, h implies "here". ! emphasize.
+        \centering % center output
+        \caption{Multiple Regression Estimates (\texttt{texreg})} % title
+        \label{texregtab} % to refer this graph in texts
+        \input{texreg_out.tex} % insert table
+    \end{table}
+
+    % Coefficient Plot
+    \begin{figure}[h!] % t implies top, h implies "here". ! emphasize.
+        \centering
+          \includegraphics[width=6in]{cp.png}
+          \caption{Coefficient Plots} %title
+          \label{cp} %Refer to this graph from texts
+    \end{figure}
+
+
+    \section{Interactions}
+
+    % Coefficient Plot
+    \begin{figure}[h!] % t implies top, h implies "here". ! emphasize.
+        \centering
+          \includegraphics[width=6in]{pri.png}
+          \caption{Prediction Plot with Interaction Model} %title
+          \label{pri} %Refer to this graph from texts
+    \end{figure}
+
+    \par For the interpretation of interacted coefficients, see \cite{Friedrich1982inde} or \cite{Brambor2006unin}. It is also described in the textbook for this class \citep{Fox2016apre}.
+
+    %\clearpage % Add Page Break
+    \bibliography{sample.bib}
+    
+\end{document}
